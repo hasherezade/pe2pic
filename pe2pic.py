@@ -94,11 +94,11 @@ def paint_section(imc, imgBuffer, scale, sect, my_color):
     draw = ImageDraw.Draw(imc)
 
     sec_end = sect.PointerToRawData + sect.SizeOfRawData
-    start1 = int(math.ceil((sect.PointerToRawData*scale)/(width*unit)))
-    limit1 = int(math.ceil((sec_end)/unit))
+    start_y = int(math.ceil((sect.PointerToRawData)/(width*unit))*scale)
+    limit_y = int(math.ceil((sec_end)/(width*unit))*scale)
     
     for x in range(0, width*scale):
-        for y in range(start1, limit1):
+        for y in range(start_y, limit_y):
             try:
                 imc.putpixel((x, y), my_color)
             except:
@@ -109,7 +109,6 @@ def paint_section_name(imc, imgBuffer, scale, sect, num, coord):
     width = imgBuffer.w
     sec_end = sect.PointerToRawData + sect.SizeOfRawData
     start_y = int(math.ceil((sect.PointerToRawData)/(width*unit))*scale)
-    limit_y = int(math.ceil((sec_end)/unit)*scale)
     sec_name = sect.Name.decode().rstrip('\x00') if len(sect.Name) else ""
 
     draw = ImageDraw.Draw(imc)
