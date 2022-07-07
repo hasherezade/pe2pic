@@ -216,6 +216,14 @@ def make_images(filename, min_height, double_view):
     images.append(img2)
     return images
 
+def visualize_file(filename, min_height, double_view, outfile, show=False):
+    images = make_images(filename, min_height, double_view)
+    out_img = combine_images(images)
+    if show:
+        out_img.show()
+    if outfile is not None:
+        out_img.save(outfile)
+
 def main():
     parser = argparse.ArgumentParser(description="PE visualiser")
     parser.add_argument('--infile', dest="infile", default=None, help="Input file", required=True)
@@ -229,12 +237,8 @@ def main():
 
     print("Input: " + filename)
     min_height = args.minheight
-    images = make_images(filename, min_height, args.double)
-    out_img = combine_images(images)
-    if outfile is None:
-        out_img.show()
-    else:
-        out_img.save(args.outfile)
+    visualize_file(filename, args.minheight, args.double, args.outfile, True)
+    if outfile is not None:
         print("Saved to: " + args.outfile)
 
 if __name__ == "__main__":
