@@ -1,4 +1,4 @@
-__中文简体__|| [English](./README.md) 
+__简体中文__|| [English](./README.md) 
 # pe2pic
 用于PE文件的小型可视化工具
 
