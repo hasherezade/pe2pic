@@ -1,6 +1,6 @@
 __中文简体__|| [English](./README.md) 
 # pe2pic
-Small visualizator for PE files
+用于PE文件的小型可视化工具
 
 # 入门指南
 通过以下方式安装依赖项:
