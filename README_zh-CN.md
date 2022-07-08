@@ -1,4 +1,4 @@
-中文简体 || [English](./README.md) 
+__中文简体__|| [English](./README.md) 
 # pe2pic
 Small visualizator for PE files
 
