@@ -81,6 +81,14 @@ class ImageBuffer:
 
 ###
 
+def cstr_to_str(cstring):
+    name_str = ""
+    for c in cstring:
+        if c == 0:
+            break
+        name_str += chr(c)
+    return name_str
+
 def random_color():
     r = random.randrange(255)
     g = random.randrange(255)
@@ -109,8 +117,7 @@ def paint_section_name(imc, imgBuffer, scale, sect, num, coord):
     width = imgBuffer.w
     sec_end = sect.PointerToRawData + sect.SizeOfRawData
     start_y = int(math.ceil((sect.PointerToRawData)/(width*unit))*scale)
-    sec_name = sect.Name.decode().rstrip('\x00') if len(sect.Name) else ""
-
+    sec_name = cstr_to_str(sect.Name)
     draw = ImageDraw.Draw(imc)
     text = "#" + str(num) + "[" + sec_name  + "]:"
     textwidth, textheight = draw.textsize(text)
@@ -134,13 +141,17 @@ def fill_with_sections(imgBuffer, my_pe, color_fill, scale=1):
         newsize = (imgBuffer.w * scale, imgBuffer.h * scale)
         imc = imc.resize(newsize, resample=Image.Resampling.BOX)
 
+    sections_count = len(my_pe.sections)
+    if sections_count == 0:
+        return imc
+
     width, height = imc.size
 
     if color_fill:
         for sect in my_pe.sections:
             paint_section(imc, imgBuffer, scale, sect, random_color())
     
-    coord_u = int(width/len(my_pe.sections))
+    coord_u = int(width/sections_count)
     num = 0
     for sect in my_pe.sections:
         coord = (coord_u * num) % width
