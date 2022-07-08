@@ -224,7 +224,7 @@ def visualize_file(filename, min_height, double_view, outfile, show=False):
         out_img.save(outfile)
 
 def main():
-    parser = argparse.ArgumentParser(description="PE visualiser")
+    parser = argparse.ArgumentParser(description="PE visualizer")
     parser.add_argument('--infile', dest="infile", default=None, help="Input file", required=True)
     parser.add_argument('--outfile', dest="outfile", default=None, help="Output file")
     parser.add_argument('--double', dest="double", default=False, help="double section view?", action='store_true')
