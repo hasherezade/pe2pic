@@ -25,3 +25,13 @@ options:
                         Min height of the output image
 
 ```
+
+# Demo
+
+Double view:
+
+![](img/demo2.png)
+
+Single view:
+
+![](img/demo1.png)
