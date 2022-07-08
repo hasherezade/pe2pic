@@ -7,3 +7,21 @@ Install the dependencies by:
 ```console
 pip install -r requirements.txt
 ```
+
+# Usage
+
+```
+usage: pe2pic.py [-h] --infile INFILE [--outfile OUTFILE] [--double]
+                 [--minheight MINHEIGHT]
+
+PE visualizer
+
+options:
+  -h, --help            show this help message and exit
+  --infile INFILE       Input file
+  --outfile OUTFILE     Output file
+  --double              double section view?
+  --minheight MINHEIGHT
+                        Min height of the output image
+
+```
