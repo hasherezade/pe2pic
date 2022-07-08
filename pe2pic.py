@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pe2pic.py: Visualise raw bytes of any given file and saves as a PNG"""
+"""pe2pic.py: Visualise raw bytes of any given file and save as a PNG. If a PE was supplied, visualizes also sections layout."""
 
 __author__ = 'hasherezade'
 __license__ = "GPL"
