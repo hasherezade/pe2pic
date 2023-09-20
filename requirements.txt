@@ -1,2 +1,2 @@
-pillow
+pillow==9.5.0
 pefile
